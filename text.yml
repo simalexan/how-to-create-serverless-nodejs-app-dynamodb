@@ -9,13 +9,19 @@ scenes:
   - image: icecream-child.jpeg
     narration: >
       This tutorial will teach you how to create a serverless Node JS application with Dynamo DB to store and retrieve data.
-  - video: app-diagram-video.mov
+  - video: app-diagram-serverless-host.mov
     narration: >
       First, lets see the ingredients:
         - a serverless host – Where you’re going to deploy and execute your code and connect to a database. We’re going with AWS. It has a pay-per-use compute service AWS Lambda. Because Lambda is just a compute service without “outside access”, we also need an “access point” or a “front door” service AWS API Gateway.
-        - a development and deployment tool – to speed up the way you build your services. We’re going to use Claudia js - a tool that automates the deployment process of your service to your AWS Lambda.
-        - a service – your service that receives a request, saves an ice cream to a database or shows all ice creams you saved. 
-        - a database — a storage where you want to store your icecream data. We’re going with DynamoDB — the AWS noSQL database.
+  - video: app-diagram-deployment.mov
+    narration: >
+      a development and deployment tool – to speed up the way you build your services. We’re going to use Claudia js - a tool that automates the deployment process of your service to your AWS Lambda.
+  - video: app-diagram-service.mov
+    narration: >
+      a service – your service that receives a request, saves an ice cream to a database or shows all ice creams you saved.
+  - video: app-diagram-database.mov
+    narration: >
+      a database — a storage where you want to store your icecream data. We’re going with DynamoDB — the AWS noSQL database.
   - video: start-account.mov
     narration: >
       Before we start, you need to have an AWS account and a locally set AWS credentials file. If you don't have one, open up your browser and go to https://console.aws.amazon.com. Click on the “Create a new AWS account” button and follow the process.
@@ -26,7 +32,13 @@ scenes:
     narration: >
       Type in some user name and check “Programmatic access”. Then click the "Next Permissions" button.
       Now click the “Attach existing policies directly” and then check the “Administrator Full Access”. Proceed to the 3rd step “Review”, and then click the “Create user” for the 4th step. At the last (4th) step, you will see a table with your user name and columns with your user’s “Access Key Id” and “Secret Access Key Id”. Copy those values.
-  - image: mac-credentials.png
+  - slide: |
+      #  OSX / Unix - AWS Credentials
+      --- js
+      [default]
+      aws_access_key_id = YourAWSAccessKeyID
+      aws_secret_access_key = YourAWSSecretAccessKey
+      ---
     narration: >
       Add those keys to your .aws/credentials file. On OSX or Unix systems it is in ~/.aws. On Win its in C:/Users/<your-user>/.aws
       You will set the AWS_PROFILE environment variable to default.
