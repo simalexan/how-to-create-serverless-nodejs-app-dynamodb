@@ -41,6 +41,9 @@ scenes:
         npm install -g claudia
       After a while, Claudia.js should be now installed globally, and available for all projects...
       Now comes the most interesting part! Writing your service — the Ice Cream Shop
+  - image: resources/npm-install.png
+    narration: >
+      Now it's step number 2. Setup your development and deployment tool - Claudia.js
   
 
 
