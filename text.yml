@@ -1,0 +1,18 @@
+size: 720p
+background:
+  audio: background-music.mp3
+  volume: 0.3
+scenes:
+  - image: resources/icecream-child.jpeg
+    duration: 3
+  - image: resources/icecream-child.jpeg
+    narration: >
+      The goal of this tutorial will show you how to create a serverless Node.js app with DynamoDB to store and retrieve data. It won’t explain the serverless idea, its benefits and so on, as there are already many tutorials on serverless covering that...
+      Serverless is like ice cream. It’s nice to talk about it, but much better to try out.
+  - image: resources/app-diagram.png
+    narration: >
+      First lets see what do you need:
+        - a serverless host – Where you’re going to deploy and execute your code and connect to a database. We’re going with AWS, as the most mature platform at the moment. AWS has a serverless container service called Lambda. Because Lambda is just a compute service without “outside access”, we also need an “access point” or a “front door” service AWS API Gateway.
+        - a development and deployment tool / library – It helps with code setup and deployment. Because serverless is still new and these tools make your life easier. Choosing a library influences the way you build your services. We’re going to use Claudia.js - a development and deployment tool with helpful examples and a good community. It will deploy your service to your AWS serverless container (Lambda) and create an API Gateway for it.
+        - a service – your service that receives a request, saves an ice cream to a database or shows all ice creams you saved. 
+        - a database — a storage to which you connect your service to store ice creams. We’re going with DynamoDB — AWS noSQL database.
