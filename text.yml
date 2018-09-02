@@ -7,7 +7,7 @@ scenes:
     duration: 3
   - image: resources/icecream-child.jpeg
     narration: >
-      The goal of this tutorial will show you how to create a serverless Node.js app with DynamoDB to store and retrieve data. It won’t explain the serverless idea, its benefits and so on, as there are already many tutorials on serverless covering that...
+      The goal of this tutorial will show you how to create a serverless Node js app with DynamoDB to store and retrieve data. It won’t explain the serverless idea, its benefits and so on, as there are already many tutorials on serverless covering that...
       Serverless is like ice cream. It’s nice to talk about it, but much better to try out.
   - image: resources/app-diagram.png
     narration: >
@@ -16,3 +16,30 @@ scenes:
         - a development and deployment tool / library – It helps with code setup and deployment. Because serverless is still new and these tools make your life easier. Choosing a library influences the way you build your services. We’re going to use Claudia.js - a development and deployment tool with helpful examples and a good community. It will deploy your service to your AWS serverless container (Lambda) and create an API Gateway for it.
         - a service – your service that receives a request, saves an ice cream to a database or shows all ice creams you saved. 
         - a database — a storage to which you connect your service to store ice creams. We’re going with DynamoDB — AWS noSQL database.
+      Now, we'll start with your serverless host setup on AWS.
+  - image: resources/console-aws.png
+    narration: >
+      You need to have an AWS account and a locally set AWS credentials file. If you don't, open your browser and go to https://console.aws.amazon.com. Click on the “Create a new AWS account” button and follow the process.
+  - image: resources/aws-services.png
+    narration: >
+      Now you need only to set your AWS credentials. Open AWS Console, click on “Services” in the top navigation bar. Write IAM in the search box and click on the resulted IAM. Click on “Users” on the left side menu, then “Add User”.
+  - image: resources/user-credentials.png
+    narration: >
+      Type in some user name and check “Programmatic access”. Then click the "Next Permissions" button.
+  - image: resources/create-user.mov
+    narration: >
+      Now click the “Attach existing policies directly” and then check the “Administrator Full Access”. Proceed to the 3rd step “Review”, and then click the “Create user” for the 4th step. At the last (4th) step, you will see a table with your user name and columns with your user’s “Access Key Id” and “Secret Access Key Id”. Copy those values.
+  - image: resources/mac-credentials.png
+    narration: >
+      Add those keys to your .aws/credentials file. On OSX or Unix systems it is in ~/.aws
+      On Win its in C:/Users/<your-user>/.aws
+      You will set the AWS_PROFILE environment variable to default.
+  - image: resources/npm-install.png
+    narration: >
+      Now it's step number 2. Setup your development and deployment tool - Claudia.js
+      Open your terminal and run:
+        npm install -g claudia
+      After a while, Claudia.js should be now installed globally, and available for all projects.
+  
+
+
