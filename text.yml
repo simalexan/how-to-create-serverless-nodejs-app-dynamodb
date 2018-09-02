@@ -9,30 +9,28 @@ scenes:
   - image: icecream-child.jpeg
     narration: >
       The goal of this tutorial is to show you how to create a serverless Node js app with DynamoDB to store and retrieve data. It won’t explain the serverless idea, its benefits and so on, as there are already many tutorials on serverless covering that...
-  - image: app-diagram.png
+  - image: app-diagram-video.mov
     narration: >
       First, you need to  lets see what do you need:
         - a serverless host – Where you’re going to deploy and execute your code and connect to a database. We’re going with AWS. It has a pay-per-use compute service AWS Lambda. Because Lambda is just a compute service without “outside access”, we also need an “access point” or a “front door” service AWS API Gateway.
         - a development and deployment tool – to speed up the way you build your services. We’re going to use Claudia js - a tool that automates the deployment process of your service to your AWS Lambda.
         - a service – your service that receives a request, saves an ice cream to a database or shows all ice creams you saved. 
         - a database — a storage where you want to store your icecream data. We’re going with DynamoDB — the AWS noSQL database.
-  - image: console-aws.png
+  - image: start-account.mov
     narration: >
       Before we start, you need to have an AWS account and a locally set AWS credentials file. If you don't have one, open up your browser and go to https://console.aws.amazon.com. Click on the “Create a new AWS account” button and follow the process.
   - image: aws-services.png
     narration: >
       Now you need only to set your AWS credentials. Open AWS Console, click on “Services” in the top navigation bar. Write IAM in the search box and click on the resulted IAM. Click on “Users” on the left side menu, then “Add User”.
-  - image: user-credentials.png
-    narration: >
-      Type in some user name and check “Programmatic access”. Then click the "Next Permissions" button.
   - video: create-user.mp4
     narration: >
+      Type in some user name and check “Programmatic access”. Then click the "Next Permissions" button.
       Now click the “Attach existing policies directly” and then check the “Administrator Full Access”. Proceed to the 3rd step “Review”, and then click the “Create user” for the 4th step. At the last (4th) step, you will see a table with your user name and columns with your user’s “Access Key Id” and “Secret Access Key Id”. Copy those values.
   - image: mac-credentials.png
     narration: >
       Add those keys to your .aws/credentials file. On OSX or Unix systems it is in ~/.aws. On Win its in C:/Users/<your-user>/.aws
       You will set the AWS_PROFILE environment variable to default.
-  - image: npm-install.png
+  - image: npm-install.mov
     narration: >
       Now, you need to setup Claudia JS.
       Open your terminal and run
@@ -43,7 +41,7 @@ scenes:
       Now comes the most interesting part! Create your project folder (you can name it ice-cream-shop) and open it in your terminal. Then initialize your Node project by running npm init -y...
       Now run npm install aws-sdk claudia-api-builder -S...
       This installs AWS SDK and Claudia API Builder. You will need AWS SDK for accessing DynamoDB. Claudia API Builder is a tool for handling routing in your service with an Express-like syntax for your endpoints. 
-  - image: index-file-code.png
+  - image: index-code.mov
     narration: > 
       The last step is to create a file named index js. The file should contain your service logic. As you can see, your service first includes claudia-api-builder and aws-sdk. Using Claudia API Builder, you expose two routes
       1. POST icecreams - to save an icecream
