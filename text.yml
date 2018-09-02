@@ -4,7 +4,7 @@ background:
   volume: 0.3
 scenes:
   - image: resources/icecream-child.jpeg
-    duration: 3
+    duration: 2
   - image: resources/icecream-child.jpeg
     narration: >
       The goal of this tutorial will show you how to create a serverless Node js app with DynamoDB to store and retrieve data. It won’t explain the serverless idea, its benefits and so on, as there are already many tutorials on serverless covering that...
@@ -26,7 +26,7 @@ scenes:
   - image: resources/user-credentials.png
     narration: >
       Type in some user name and check “Programmatic access”. Then click the "Next Permissions" button.
-  - video: resources/create-user.mov
+  - video: resources/create-user.mp4
     narration: >
       Now click the “Attach existing policies directly” and then check the “Administrator Full Access”. Proceed to the 3rd step “Review”, and then click the “Create user” for the 4th step. At the last (4th) step, you will see a table with your user name and columns with your user’s “Access Key Id” and “Secret Access Key Id”. Copy those values.
   - image: resources/mac-credentials.png
@@ -44,6 +44,20 @@ scenes:
   - image: resources/npm-install.png
     narration: >
       Now it's step number 2. Setup your development and deployment tool - Claudia.js
+  - video: resources/setup-project.mp4
+    narration: >
+    Create your project folder (you can name it ice-cream-shop) and open it in your terminal. Initialize your Node project by running npm init -y.
+    Then run npm install aws-sdk claudia-api-builder -S.
+    This installs AWS SDK and Claudia API Builder. You will need AWS SDK for accessing DynamoDB. Claudia API Builder is a tool for handling routing in your service with an Express-like syntax for your endpoints. 
+  - image: resources/index-file-code.png
+    narration: > 
+      The last step is to create a file named index js. The file should contain your service logic. As you can see, your service first includes claudia-api-builder and aws-sdk.  With Claudia API Builder you exposed two routes
+      1. to save an ice cream — needs a POST request
+      2. to get all saved ice creams — needs a GET request
+      Using Dynamo DB client methods put and scan you’re adding one or getting all ice creams. But, you don't have a database still, right? That means you need to create one.
+
+
+
   
 
 
