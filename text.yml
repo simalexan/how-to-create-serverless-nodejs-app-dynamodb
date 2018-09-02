@@ -34,11 +34,12 @@ scenes:
       Now click the “Attach existing policies directly” and then check the “Administrator Full Access”. Proceed to the 3rd step “Review”, and then click the “Create user” for the 4th step. At the last (4th) step, you will see a table with your user name and columns with your user’s “Access Key Id” and “Secret Access Key Id”. Copy those values.
   - slide: |
       # OSX / Unix - AWS Credentials
-      --- bash
+      ## How should your `~/.aws/credentials` look
+      ```bash
       [default]
       aws_access_key_id = YourAWSAccessKeyID
       aws_secret_access_key = YourAWSSecretAccessKey
-      ---
+      ```
     narration: >
       Add those keys to your .aws/credentials file. On OSX or Unix systems it is in ~/.aws. On Win its in C:/Users/<your-user>/.aws
       You will set the AWS_PROFILE environment variable to default.
