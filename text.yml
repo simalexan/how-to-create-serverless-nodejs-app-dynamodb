@@ -65,7 +65,7 @@ scenes:
   - video: resources/windows-msi-installer.mp4
     narration: >
       If you're using a Windows, there is a MSI Installer available. Just follow the documentation instructions, to download and then install the AWS CLI on your system.
-   - video: resources/mac-bundled-installer.mp4
+  - video: resources/mac-bundled-installer.mp4
     narration: >
       If you're using a Mac/Unix, there is a Bundled Installer available as well. Just follow the listed commands on its corresponding page. 
   - image: resources/aws-cli-dynamodb-command.png
@@ -74,7 +74,29 @@ scenes:
   - image: resources/dynamo-policy.png
     narration: >
       The last step to allow your service access to your DynamoDB database. To do that your service requires a permission policy. Instead of doing it via AWS Console, you can create a policy file, containing the JSON on the screen, in your project and then apply it with Claudia.
-
+  - video: resources/dynamodb-policy.mp4
+    narration: >
+      Inside your ice-cream-shop project folder, create a folder policy and in it a file called dynamodb-policy json. This policy allows your Lambda service to access your DynamoDb database. When invoking Claudia to deploy your code, this policy file location needs to be passed as the deploy option to let Claudia know to assign the policy to your Lambda.
+  - image: resources/dynamo-policy.png
+    narration: >
+      Again, you have on the screen the JSON needed for the policy. Feel free to pause the tutorial if needed. Because now it's time for deployment!
+  - video: resources/claudia-create-app.mp4
+    narration: >
+      For your first deployment, Claudia needs to create a Lambda for your service. Open the project folder ice-cream-shopand run "claudia create --region us-east-1 --api-module index --policies policy".
+      This command creates your serverless container (AWS Lambda) in the region "us-east-1", sets the index file as the main service file, and assigns the policy from the policy folder to your Lambda.
+  - image: resources/deployment-result.png
+    narration: >
+      If the command is successful, it should returns the created service URL endpoint in the final output, similar to this one on the screen.
+  - image: resources/curl-get.png
+    narration: >
+      To test your service, you will now need to run a cURL command which would get the available icecreams from your service. Be sure to replace the "your-service" placeholder, with your actual service url.
+  - image: resources/curl-post.png
+    narration: >
+      To save an ice cream, you'll need to run a cURL command which posts the data to your service. Again, be sure to replace the "your-service" placeholder, with your actual service url. That's it. 
+  - image: resources/thats-it.png
+    narration: >
+      By running these commands you’ll see your service working! That’s it! Your service is up and running and you have created your first serverless Node js application. Congratulations! Thank you for watching this tutorial, if you have questions be sure to ask. Hope you learned a lot and see you soon!
+       
 
 
   
