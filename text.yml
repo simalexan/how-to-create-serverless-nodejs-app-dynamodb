@@ -13,7 +13,7 @@ scenes:
     narration: >
       First lets see what do you need:
         - a serverless host – Where you’re going to deploy and execute your code and connect to a database. We’re going with AWS, as the most mature platform at the moment. AWS has a serverless container service called Lambda. Because Lambda is just a compute service without “outside access”, we also need an “access point” or a “front door” service AWS API Gateway.
-        - a development and deployment tool / library – It helps with code setup and deployment. Because serverless is still new and these tools make your life easier. Choosing a library influences the way you build your services. We’re going to use Claudia.js - a development and deployment tool with helpful examples and a good community. It will deploy your service to your AWS serverless container (Lambda) and create an API Gateway for it.
+        - a development and deployment tool / library – It helps with code setup and deployment. Because serverless is still new and these tools make your life easier. Choosing a library influences the way you build your services. We’re going to use Claudia js - a development and deployment tool with helpful examples and a good community. It will deploy your service to your AWS serverless container (Lambda) and create an API Gateway for it.
         - a service – your service that receives a request, saves an ice cream to a database or shows all ice creams you saved. 
         - a database — a storage to which you connect your service to store ice creams. We’re going with DynamoDB — AWS noSQL database.
       Now, we'll start with your serverless host setup on AWS.
@@ -31,24 +31,23 @@ scenes:
       Now click the “Attach existing policies directly” and then check the “Administrator Full Access”. Proceed to the 3rd step “Review”, and then click the “Create user” for the 4th step. At the last (4th) step, you will see a table with your user name and columns with your user’s “Access Key Id” and “Secret Access Key Id”. Copy those values.
   - image: resources/mac-credentials.png
     narration: >
-      Add those keys to your .aws/credentials file. On OSX or Unix systems it is in ~/.aws
-      On Win its in C:/Users/<your-user>/.aws
+      Add those keys to your .aws/credentials file. On OSX or Unix systems it is in ~/.aws. On Win its in C:/Users/<your-user>/.aws
       You will set the AWS_PROFILE environment variable to default.
   - image: resources/npm-install.png
     narration: >
-      Now it's step number 2. Setup your development and deployment tool - Claudia.js
-      Open your terminal and run:
-        npm install -g claudia
-      After a while, Claudia.js should be now installed globally, and available for all projects...
+      Now it's step number 2. Setup your development and deployment tool - Claudia js
+      Open your terminal and run
+      npm install -g claudia
+      After a while, Claudia js should be now installed globally, and available for all projects...
       Now comes the most interesting part! Writing your service — the Ice Cream Shop
   - image: resources/npm-install.png
     narration: >
-      Now it's step number 2. Setup your development and deployment tool - Claudia.js
+      Now it's step number 2. Setup your development and deployment tool - Claudia js
   - video: resources/setup-project.mp4
     narration: >
-    Create your project folder (you can name it ice-cream-shop) and open it in your terminal. Initialize your Node project by running npm init -y.
-    Then run npm install aws-sdk claudia-api-builder -S.
-    This installs AWS SDK and Claudia API Builder. You will need AWS SDK for accessing DynamoDB. Claudia API Builder is a tool for handling routing in your service with an Express-like syntax for your endpoints. 
+      Create your project folder (you can name it ice-cream-shop) and open it in your terminal. Initialize your Node project by running npm init -y.
+      Then run npm install aws-sdk claudia-api-builder -S.
+      This installs AWS SDK and Claudia API Builder. You will need AWS SDK for accessing DynamoDB. Claudia API Builder is a tool for handling routing in your service with an Express-like syntax for your endpoints. 
   - image: resources/index-file-code.png
     narration: > 
       The last step is to create a file named index js. The file should contain your service logic. As you can see, your service first includes claudia-api-builder and aws-sdk.  With Claudia API Builder you exposed two routes
