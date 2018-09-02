@@ -15,7 +15,7 @@ scenes:
         - a serverless host – Where you’re going to deploy and execute your code and connect to a database. We’re going with AWS. It has a pay-per-use compute service AWS Lambda. Because Lambda is just a compute service without “outside access”, we also need an “access point” or a “front door” service AWS API Gateway.
   - video: app-diagram-deployment.mov
     narration: >
-      a development and deployment tool – to speed up the way you build your services. We’re going to use Claudia js - a tool that automates the deployment process of your service to your AWS Lambda.
+      a development and deployment tool – to speed up the way you build your services. We’re going to use Claudia JS - a tool that automates the deployment process of your service to your AWS Lambda.
   - video: app-diagram-service.mov
     narration: >
       a service – your service that receives a request, saves an ice cream to a database or shows all ice creams you saved.
@@ -28,13 +28,13 @@ scenes:
   - image: aws-services.png
     narration: >
       Now you need only to set your AWS credentials. Open AWS Console, click on “Services” in the top navigation bar. Write IAM in the search box and click on the resulted IAM. Click on “Users” on the left side menu, then “Add User”.
-  - video: create-user.mp4
+  - video: create-user.mov
     narration: >
       Type in some user name and check “Programmatic access”. Then click the "Next Permissions" button.
       Now click the “Attach existing policies directly” and then check the “Administrator Full Access”. Proceed to the 3rd step “Review”, and then click the “Create user” for the 4th step. At the last (4th) step, you will see a table with your user name and columns with your user’s “Access Key Id” and “Secret Access Key Id”. Copy those values.
   - slide: |
       # OSX / Unix - AWS Credentials
-      ## How should your `~/.aws/credentials` look
+      ## How should the file look
       ```bash
       [default]
       aws_access_key_id = YourAWSAccessKeyID
@@ -72,17 +72,62 @@ scenes:
   - video: mac-bundled-installer.mp4
     narration: >
       If you're using a Mac/Unix, there is a Bundled Installer available as well. Just follow the listed commands on its corresponding page. 
-  - image: aws-cli-dynamodb-command.png
+  - slide: |
+      ## Create a DynamoDB table
+      ```bash
+      aws dynamodb create-table --table-name icecreams \
+      --attribute-definitions AttributeName=icecreamid,AttributeType=S \
+      --key-schema AttributeName=icecreamid,KeyType=HASH \
+      --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 \
+      --region us-east-1 \
+      --query TableDescription.TableArn --output text
+      ```
     narration: >
       When you have it installed now you need to run the command to create a DynamoDB table named "icecreams" in the same region as your AWS Lambda, with a key attribute icecreamid, which should be type of String. 
       The command returns the table’s Amazon Resource Name (ARN) to confirm that everything is set up correctly. If you’ve followed properly one those two ways, you should have successfully setup your database.
-  - image: dynamo-policy.png
+  - slide: |
+      ## Add DynamoDB Policy
+      ```json
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Action": [
+              "dynamodb:DeleteItem",
+              "dynamodb:GetItem",
+              "dynamodb:PutItem",
+              "dynamodb:Scan"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+          }
+        ]
+      }
+      ```
     narration: >
       The last step to allow your service access to your DynamoDB database. To do that your service requires a permission policy. Instead of doing it via AWS Console, you can create a policy file, containing the JSON on the screen, in your project and then apply it with Claudia.
   - video: dynamodb-policy.mp4
     narration: >
       Inside your ice-cream-shop project folder, create a folder policy and in it a file called dynamodb-policy json. This policy allows your Lambda service to access your DynamoDb database. When invoking Claudia to deploy your code, this policy file location needs to be passed as the deploy option to let Claudia know to assign the policy to your Lambda.
-  - image: dynamo-policy.png
+  - slide: |
+      ## Add DynamoDB Policy
+      ```json
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Action": [
+              "dynamodb:DeleteItem",
+              "dynamodb:GetItem",
+              "dynamodb:PutItem",
+              "dynamodb:Scan"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+          }
+        ]
+      }
+      ```
     narration: >
       Again, you have on the screen the JSON needed for the policy. Feel free to pause the tutorial if needed. Because now it's time for deployment!
   - video: claudia-create-app.mp4
@@ -92,10 +137,18 @@ scenes:
   - image: deployment-result.png
     narration: >
       If the command is successful, it should returns the created service URL endpoint in the final output, similar to this one on the screen.
-  - image: curl-get.png
+  - slide: |
+      ## curl GET all icecreams
+      ```bash
+      curl https://your-service-url.execute-api.us-east-1.amazonaws.com/latest/icecreams
+      ```
     narration: >
       To test your service, you will now need to run a cURL command which would get the available icecreams from your service. Be sure to replace the "your-service" placeholder, with your actual service url.
-  - image: curl-post.png
+  - slide: |
+      ## curl GET all icecreams
+      ```bash
+      curl -H "Content-Type: application/json" -X POST -d '{"icecreamId":"123", "name":"chocolate"}' https://your-service-url.execute-api.us-east-1.amazonaws.com/latest/icecreams
+      ```
     narration: >
       To save an ice cream, you'll need to run a cURL command which posts the data to your service. Again, be sure to replace the "your-service" placeholder, with your actual service url. That's it. 
   - image: thats-it.png
