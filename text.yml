@@ -26,7 +26,7 @@ scenes:
   - image: resources/user-credentials.png
     narration: >
       Type in some user name and check “Programmatic access”. Then click the "Next Permissions" button.
-  - image: resources/create-user.mov
+  - video: resources/create-user.mov
     narration: >
       Now click the “Attach existing policies directly” and then check the “Administrator Full Access”. Proceed to the 3rd step “Review”, and then click the “Create user” for the 4th step. At the last (4th) step, you will see a table with your user name and columns with your user’s “Access Key Id” and “Secret Access Key Id”. Copy those values.
   - image: resources/mac-credentials.png
@@ -39,7 +39,8 @@ scenes:
       Now it's step number 2. Setup your development and deployment tool - Claudia.js
       Open your terminal and run:
         npm install -g claudia
-      After a while, Claudia.js should be now installed globally, and available for all projects.
+      After a while, Claudia.js should be now installed globally, and available for all projects...
+      Now comes the most interesting part! Writing your service — the Ice Cream Shop
   
 
 
