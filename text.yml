@@ -1,6 +1,6 @@
 size: 720p
 background:
-  audio: background-music.mp3
+  audio: resources/background-music.mp3
   volume: 0.3
 scenes:
   - image: resources/icecream-child.jpeg
