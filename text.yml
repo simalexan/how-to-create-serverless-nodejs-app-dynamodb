@@ -9,14 +9,14 @@ scenes:
   - image: icecream-child.jpeg
     narration: >
       This tutorial will teach you how to create a serverless Node JS application with Dynamo DB to store and retrieve data.
-  - image: app-diagram-video.mov
+  - video: app-diagram-video.mov
     narration: >
       First, lets see the ingredients:
         - a serverless host – Where you’re going to deploy and execute your code and connect to a database. We’re going with AWS. It has a pay-per-use compute service AWS Lambda. Because Lambda is just a compute service without “outside access”, we also need an “access point” or a “front door” service AWS API Gateway.
         - a development and deployment tool – to speed up the way you build your services. We’re going to use Claudia js - a tool that automates the deployment process of your service to your AWS Lambda.
         - a service – your service that receives a request, saves an ice cream to a database or shows all ice creams you saved. 
         - a database — a storage where you want to store your icecream data. We’re going with DynamoDB — the AWS noSQL database.
-  - image: start-account.mov
+  - video: start-account.mov
     narration: >
       Before we start, you need to have an AWS account and a locally set AWS credentials file. If you don't have one, open up your browser and go to https://console.aws.amazon.com. Click on the “Create a new AWS account” button and follow the process.
   - image: aws-services.png
@@ -30,7 +30,7 @@ scenes:
     narration: >
       Add those keys to your .aws/credentials file. On OSX or Unix systems it is in ~/.aws. On Win its in C:/Users/<your-user>/.aws
       You will set the AWS_PROFILE environment variable to default.
-  - image: npm-install.mov
+  - video: npm-install.mov
     narration: >
       Now, you need to setup Claudia JS.
       Open your terminal and run
@@ -41,7 +41,7 @@ scenes:
       Now comes the most interesting part! Create your project folder (you can name it ice-cream-shop) and open it in your terminal. Then initialize your Node project by running npm init -y...
       Now run npm install aws-sdk claudia-api-builder -S...
       This installs AWS SDK and Claudia API Builder. You will need AWS SDK for accessing DynamoDB. Claudia API Builder is a tool for handling routing in your service with an Express-like syntax for your endpoints. 
-  - image: index-code.mov
+  - video: index-code.mov
     narration: > 
       The last step is to create a file named index js. The file should contain your service logic. As you can see, your service first includes claudia-api-builder and aws-sdk. Using Claudia API Builder, you expose two routes
       1. POST icecreams - to save an icecream
