@@ -62,15 +62,18 @@ scenes:
   - image: resources/aws-cli-dynamodb-command.png
     narration: >
       The second way is via AWS CLI (with a single command) in your command line. To be able to run this command, you will need to have AWS CLI installed. There are available easy installers for both Windows and Mac.
-  - image: resources/windows-msi-installer.mp4
+  - video: resources/windows-msi-installer.mp4
     narration: >
       If you're using a Windows, there is a MSI Installer available. Just follow the documentation instructions, to download and then install the AWS CLI on your system.
-   - image: resources/mac-bundled-installer.mp4
+   - video: resources/mac-bundled-installer.mp4
     narration: >
       If you're using a Mac/Unix, there is a Bundled Installer available as well. Just follow the listed commands on its corresponding page. 
   - image: resources/aws-cli-dynamodb-command.png
     narration: >
       When you have it installed now you need to run the command to create a DynamoDB table named "icecreams" in the same region as your AWS Lambda, with a key attribute icecreamid, which should be type of String. The command returns the table’s Amazon Resource Name (ARN) to confirm that everything is set up correctly. If you’ve followed properly one those two ways, you should have successfully setup your database.
+  - image: resources/dynamo-policy.png
+    narration: >
+      The last step to allow your service access to your DynamoDB database. To do that your service requires a permission policy. Instead of doing it via AWS Console, you can create a policy file, containing the JSON on the screen, in your project and then apply it with Claudia.
 
 
 
