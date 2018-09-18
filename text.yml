@@ -17,35 +17,35 @@ scenes:
       type: rectangle
       left: 450
       top: 30
-      right: 1400
+      right: 1250
       bottom: 400
   - video: app-diagram-deployment.mov
     narration: >
       a development and deployment tool – to speed up the way you build your services. We’re going to use Claudia JS - a tool that automates the deployment process of your service to your AWS Lambda.
     callout:
       type: rectangle
-      left: 620
+      left: 630
       top: 400
-      right: 920
-      bottom: 620
+      right: 980
+      bottom: 640
   - video: app-diagram-service.mov
     narration: >
       a service – your service that receives a request, saves an ice cream to a database or shows all ice creams you saved.
     callout:
       type: rectangle
-      left: 650
-      top: 110
-      right: 940
+      left: 660
+      top: 100
+      right: 930
       bottom: 350
   - video: app-diagram-database.mov
     narration: >
       a database — a storage where you want to store your icecream data. We’re going with DynamoDB — the AWS noSQL database.
     callout:
       type: rectangle
-      left: 1100
-      top: 140
-      right: 1250
-      bottom: 280
+      left: 1000
+      top: 130
+      right: 1180
+      bottom: 320
   - video: start-account.mov
     narration: >
       Before we start, you need to have an AWS account and a locally set AWS credentials file. If you don't have one, open up your browser and go to https://console.aws.amazon.com. Click on the “Create a new AWS account” button and follow the process.
